@@ -1921,7 +1921,7 @@ footer {
         scroll-behavior: auto;
     }
 
-    *,
+    *:not(.falling-item),
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
@@ -2605,7 +2605,7 @@ footer {
 
         @media (prefers-reduced-motion: reduce) {
 
-            *,
+            *:not(.falling-item),
             *::before,
             *::after {
                 animation-duration: 0.01ms !important;
