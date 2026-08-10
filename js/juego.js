@@ -378,8 +378,48 @@
                CONTROLAR SI LLEGA AL FONDO
             ============================================= */
 
-            const checkBottom =
-                setTimeout(() => {
+            /* =============================================
+               CAÍDA CONTROLADA POR JAVASCRIPT
+               (No depende de animaciones CSS, así funciona
+               igual en todos los dispositivos, incluso con
+               ahorro de batería o "reducir movimiento" activado)
+            ============================================= */
+
+            const travelDistance =
+                playArea.clientHeight + 80;
+
+            const durationMs =
+                duration * 1000;
+
+            let startTime = null;
+            let rafId = null;
+            let landed = false;
+
+            function step(now) {
+
+                if (!startTime) startTime = now;
+
+                const elapsed = now - startTime;
+
+                const progress =
+                    Math.min(elapsed / durationMs, 1);
+
+                const currentY =
+                    -60 + progress * travelDistance;
+
+                const rotation =
+                    progress * 360;
+
+                el.style.transform =
+                    `translateY(${currentY}px) rotate(${rotation}deg)`;
+
+                if (progress < 1 && !landed) {
+
+                    rafId = requestAnimationFrame(step);
+
+                } else if (!landed) {
+
+                    landed = true;
 
                     if (
                         gameActive &&
@@ -387,7 +427,6 @@
                     ) {
 
                         el.remove();
-
 
                         if (
                             itemData.type ===
@@ -402,7 +441,11 @@
 
                     }
 
-                }, duration * 1000);
+                }
+
+            }
+
+            rafId = requestAnimationFrame(step);
 
 
             /* =============================================
@@ -421,8 +464,10 @@
                     }
 
 
-                    clearTimeout(
-                        checkBottom
+                    landed = true;
+
+                    cancelAnimationFrame(
+                        rafId
                     );
 
 
