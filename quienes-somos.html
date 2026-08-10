@@ -5,45 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="La storia di Kè Cévere e della nostra pasticceria venezuelana artigianale.">
     <title>Chi Siamo | Kè Cévere - Il Salotto del Gusto</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <style>
-        /* Estilo personalizado para el botón giococoin en el footer */
-        .btn-giococoin {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: linear-gradient(135deg, #ff758c, #ff477e);
-            color: #ffffff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            box-shadow: 0 4px 10px rgba(255, 117, 140, 0.3);
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-giococoin:hover {
-            background: linear-gradient(135deg, #ff477e, #ff758c);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(255, 117, 140, 0.5);
-        }
-
-        /* Estilo visual para el contador de descuento en el menú */
-        .nav-discount-badge {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(255, 209, 102, 0.15);
-            border: 1px solid rgba(255, 209, 102, 0.4);
-            padding: 4px 10px;
-            border-radius: 12px;
-            color: #ffd166;
-            font-weight: bold;
-            font-size: 0.85rem;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -125,7 +87,7 @@
                 <h4>Kè Cévere Italia</h4>
                 <p>Dolci artigianali venezuelani ad Arona (Piemonte) e Milano (Lombardia).</p>
                 <!-- Botón Giococoin añadido aquí -->
-                <a href="gioco.html" class="btn-giococoin">🎮 giococoin</a>
+                <a href="juego.html" class="btn-giococoin">🎮 giococoin</a>
             </div>
             <div class="footer-section">
                 <h4>Link Rapidi</h4>
@@ -146,29 +108,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-
-    <!-- SCRIPT DE SINCRONIZACIÓN DEL DESCUENTO GLOBAL -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            function updateGlobalDiscount() {
-                const discountBadge = document.getElementById('global-discount-counter');
-                if (discountBadge) {
-                    const currentDiscount = parseFloat(localStorage.getItem('kecevere_discount')) || 0.00;
-                    discountBadge.innerText = `€${currentDiscount.toFixed(2)}`;
-                }
-            }
-
-            // Actualizar al cargar la página
-            updateGlobalDiscount();
-
-            // Sincronizar en tiempo real si el usuario juega en una pestaña y tiene otra abierta
-            window.addEventListener('storage', (e) => {
-                if (e.key === 'kecevere_discount') {
-                    updateGlobalDiscount();
-                }
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

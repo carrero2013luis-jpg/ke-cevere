@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kè Cévere Arcade</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         ENCABEZADO / NAVEGACIÓN
+    ===================================================== -->
+
+    <header>
+
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                🍰 Kè Cévere
+                <small>| Il Salotto del Gusto</small>
+            </a>
+
+            <nav>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tienda.html">
+                            Menu / Prodotti
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="quienes-somos.html">
+                            Chi Siamo
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="registrarse.html">
+                            Account
+                        </a>
+                    </li>
+
+                    <li>
+
+                        <span class="nav-discount-badge">
+
+                            🎁 Sconto:
+
+                            <span id="global-discount-counter">
+                                €0.00
+                            </span>
+
+                        </span>
+
+                    </li>
+
+                    <li>
+
+                        <a href="carrito.html">
+                            🛒 Carrello
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTENIDO DEL JUEGO
+    ===================================================== -->
+
+    <main class="main-arcade-container">
+
+        <div class="arcade-cabinet">
+
+            <!-- CABECERA DEL JUEGO -->
+
+            <div class="arcade-header">
+
+                <a
+                    href="index.html"
+                    class="back-arcade-btn"
+                >
+                    ⬅ Home
+                </a>
+
+                <div class="stat-group">
+
+                    <small>
+                        Livello
+                    </small>
+
+                    <span id="level-display">
+                        1 / 10
+                    </span>
+
+                </div>
+
+                <div class="stat-group">
+
+                    <small>
+                        Sconto
+                    </small>
+
+                    <span id="discount-display">
+                        €0.00
+                    </span>
+
+                </div>
+
+                <div class="stat-group">
+
+                    <small>
+                        Partite oggi
+                    </small>
+
+                    <span id="games-left">
+                        5/5
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ZONA DEL JUEGO -->
+
+            <div id="play-area">
+
+                <!-- PANTALLA INICIAL -->
+
+                <div
+                    id="start-screen"
+                    class="overlay-screen"
+                >
+
+                    <h2>
+                        🍰 Kè Cévere Arcade
+                    </h2>
+
+                    <p>
+
+                        Prendi i dolci prima che
+                        tocchino il fondo! 🍬🎂
+
+                        <br><br>
+
+                        Ogni pezzo vale
+                        <b>0.02€ di sconto</b>
+                        per i tuoi acquisti.
+
+                        <br><br>
+
+                        ⚠️
+
+                        <b>
+                            Se un dolce cade o prendi
+                            una bomba (💣):
+                            GAME OVER immediato!
+                        </b>
+
+                    </p>
+
+                    <button
+                        class="arcade-btn"
+                        id="start-btn"
+                        onclick="startGame()"
+                    >
+                        INIZIA PARTITA
+                    </button>
+
+                </div>
+
+
+                <!-- PANTALLA FINAL -->
+
+                <div
+                    id="end-screen"
+                    class="overlay-screen"
+                    style="display: none;"
+                >
+
+                    <h2 id="end-title">
+                        GAME OVER
+                    </h2>
+
+                    <p id="end-message"></p>
+
+                    <button
+                        class="arcade-btn"
+                        id="end-action-btn"
+                        onclick="resetToMenu()"
+                    >
+                        TRY AGAIN
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-section">
+
+                <h4>
+                    Kè Cévere Italia
+                </h4>
+
+                <p>
+                    Dolci artigianali venezuelani
+                    ad Arona (Piemonte) e Milano
+                    (Lombardia).
+                </p>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h4>
+                    Link Rapidi
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="tienda.html">
+                            Vedi Prodotti
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="quienes-somos.html">
+                            La Nostra Storia
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="terminos.html">
+                            Termini e Condizioni
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h4>
+                    Servizio Clienti
+                </h4>
+
+                <p>
+                    📍 Consegne ad Arona e Milano
+                </p>
+
+                <p>
+                    📞 WhatsApp: +39 348 7541138
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy; 2026 Kè Cévere -
+                Il Salotto del Gusto.
+                Tutti i diritti riservati.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT DEL JUEGO
+    ===================================================== -->
+
+    <script src="js/juego.js"></script>
+
+</body>
+
+</html>

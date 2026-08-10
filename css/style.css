@@ -1936,3 +1936,724 @@ footer {
 /* =========================================================
    FIN DEL CSS
    ========================================================= */
+/* =============================================================
+   ESTILOS DEL JUEGO (Kè Cévere Arcade) - antes inline en gioco.html
+   ============================================================= */
+        :root {
+            --accent: #d97706;
+            --accent-hover: #b45309;
+            --text: #292524;
+            --text-secondary: #78716c;
+            --bg-color: #fffaf3;
+            --cabinet-bg: #ffffff;
+            --panel-bg: #fff7ed;
+            --border-color: #eadfd2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .logo small {
+            font-size: 0.85rem;
+            color: #78716c;
+            font-weight: normal;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #44403c;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 9px 11px;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--accent);
+            background: #fff7ed;
+        }
+
+        .nav-discount-badge {
+            display: inline-flex;
+            align-items: center;
+            background: #fef3c7;
+            border: 1px solid #fde68a;
+            padding: 6px 12px;
+            border-radius: 20px;
+            color: #d97706;
+            font-weight: bold;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        /* =====================================================
+           CONTENEDOR DEL JUEGO
+        ===================================================== */
+
+        .main-arcade-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 15px;
+        }
+
+        .arcade-cabinet {
+            width: min(480px, 100%);
+            height: 640px;
+            background-color: var(--cabinet-bg);
+            border: 3px solid var(--border-color);
+            border-radius: 24px;
+            box-shadow:
+                0 15px 35px rgba(217, 119, 6, 0.12),
+                0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* =====================================================
+           CABECERA DEL ARCADE
+        ===================================================== */
+
+        .arcade-header {
+            background-color: var(--panel-bg);
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            font-size: 0.85rem;
+            gap: 8px;
+        }
+
+        .stat-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 60px;
+        }
+
+        .stat-group small {
+            color: #78350f;
+            font-size: 0.72rem;
+        }
+
+        .stat-group span {
+            font-weight: bold;
+            color: #b45309;
+            font-size: 1.05rem;
+        }
+
+        .back-arcade-btn {
+            background: #fff;
+            color: var(--text);
+            padding: 6px 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .back-arcade-btn:hover {
+            background: #fef3c7;
+            transform: translateX(-2px);
+        }
+
+        /* =====================================================
+           ZONA DE JUEGO
+        ===================================================== */
+
+        #play-area {
+            position: relative;
+            width: 100%;
+            height: 530px;
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(245, 158, 11, 0.08),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    to bottom,
+                    #fffbeb,
+                    #fff7ed
+                );
+            overflow: hidden;
+            cursor: crosshair;
+        }
+
+        /* =====================================================
+           ELEMENTOS QUE CAEN
+        ===================================================== */
+
+        .falling-item {
+            position: absolute;
+            font-size: 2.8rem;
+            user-select: none;
+            cursor: pointer;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+            animation: fall linear forwards;
+            transition: transform 0.1s;
+            z-index: 10;
+        }
+
+        .falling-item:hover {
+            transform: scale(1.08);
+        }
+
+        .falling-item:active {
+            transform: scale(0.7);
+        }
+
+        @keyframes fall {
+
+            0% {
+                transform: translateY(-60px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(580px) rotate(360deg);
+            }
+        }
+
+        /* =====================================================
+           PANTALLAS DE OVERLAY
+        ===================================================== */
+
+        .overlay-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 25px;
+
+            z-index: 200;
+        }
+
+        .overlay-screen h2 {
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-size: 1.8rem;
+        }
+
+        .overlay-screen p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            max-width: 380px;
+        }
+
+        /* =====================================================
+           BOTONES DEL JUEGO
+        ===================================================== */
+
+        .arcade-btn {
+            background: linear-gradient(
+                135deg,
+                var(--accent),
+                var(--accent-hover)
+            );
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 30px;
+
+            font-size: 1.05rem;
+
+            font-weight: bold;
+
+            border-radius: 25px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 4px 12px rgba(217, 119, 6, 0.3);
+
+            transition:
+                transform 0.15s ease,
+                box-shadow 0.15s ease;
+        }
+
+        .arcade-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+
+            box-shadow:
+                0 7px 18px rgba(217, 119, 6, 0.35);
+        }
+
+        .arcade-btn:active {
+            transform: scale(0.97);
+        }
+
+        .arcade-btn:disabled {
+            background: #e7e5e4;
+            color: #a8a29e;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* =====================================================
+           GAME OVER
+        ===================================================== */
+
+        #end-title.game-over {
+            color: #dc2626 !important;
+        }
+
+        #end-title.victory {
+            color: #d97706 !important;
+        }
+
+        /* =====================================================
+           CONFETI
+        ===================================================== */
+
+        .victory-confetti {
+            position: absolute;
+            font-size: 2rem;
+            animation: victoryFloat 2s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 205;
+        }
+
+        @keyframes victoryFloat {
+
+            0% {
+                transform:
+                    translateY(0px)
+                    rotate(0deg);
+            }
+
+            100% {
+                transform:
+                    translateY(-20px)
+                    rotate(15deg);
+            }
+        }
+
+        /* =====================================================
+           MENSAJE FLOTANTE
+        ===================================================== */
+
+        .popup-msg {
+            position: absolute;
+            font-weight: bold;
+            font-size: 1.1rem;
+            pointer-events: none;
+            animation: floatUp 0.5s ease-out forwards;
+            z-index: 150;
+        }
+
+        @keyframes floatUp {
+
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-35px);
+            }
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background-color: #26190f;
+            color: #fff0f3;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(250px, 1fr)
+                );
+
+            gap: 30px;
+        }
+
+        .footer-section h4 {
+            color: #fed7aa;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p,
+        .footer-section ul {
+            font-size: 0.9rem;
+            color: #d8b4be;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #d8b4be;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+
+            border-top:
+                1px solid rgba(255, 255, 255, 0.1);
+
+            padding-top: 20px;
+
+            text-align: center;
+
+            font-size: 0.85rem;
+
+            color: #a89098;
+        }
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .header-container {
+                padding: 14px 15px;
+            }
+
+            .logo small {
+                display: none;
+            }
+
+            nav ul {
+                gap: 2px;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+                padding: 8px;
+            }
+
+            .nav-discount-badge {
+                font-size: 0.78rem;
+                padding: 5px 8px;
+            }
+        }
+
+        /* =====================================================
+           MÓVIL
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .header-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            nav ul {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                font-size: 0.82rem;
+            }
+
+            .nav-discount-badge {
+                font-size: 0.76rem;
+            }
+
+            .main-arcade-container {
+                padding: 20px 10px;
+                align-items: flex-start;
+            }
+
+            .arcade-cabinet {
+                height: 600px;
+                border-radius: 18px;
+                border-width: 2px;
+            }
+
+            .arcade-header {
+                padding: 10px 8px;
+            }
+
+            .stat-group {
+                min-width: 48px;
+            }
+
+            .stat-group small {
+                font-size: 0.62rem;
+            }
+
+            .stat-group span {
+                font-size: 0.88rem;
+            }
+
+            .back-arcade-btn {
+                padding: 5px 8px;
+                font-size: 0.7rem;
+            }
+
+            #play-area {
+                height: 500px;
+            }
+
+            .falling-item {
+                font-size: 2.4rem;
+            }
+
+            .overlay-screen {
+                padding: 20px;
+            }
+
+            .overlay-screen h2 {
+                font-size: 1.55rem;
+            }
+
+            .overlay-screen p {
+                font-size: 0.88rem;
+            }
+
+            footer {
+                padding: 30px 15px 15px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+        }
+
+        /* =====================================================
+           MÓVIL PEQUEÑO
+        ===================================================== */
+
+        @media (max-width: 430px) {
+
+            .header-container {
+                padding: 12px 10px;
+            }
+
+            nav ul {
+                gap: 3px;
+            }
+
+            nav a {
+                font-size: 0.74rem;
+                padding: 7px 6px;
+            }
+
+            .nav-discount-badge {
+                width: 100%;
+                justify-content: center;
+                margin-top: 3px;
+            }
+
+            .arcade-cabinet {
+                height: 570px;
+            }
+
+            #play-area {
+                height: 470px;
+            }
+
+            .arcade-header {
+                gap: 4px;
+            }
+
+            .stat-group small {
+                font-size: 0.58rem;
+            }
+
+            .stat-group span {
+                font-size: 0.8rem;
+            }
+
+            .back-arcade-btn {
+                font-size: 0.65rem;
+                padding: 5px 6px;
+            }
+
+            .falling-item {
+                font-size: 2.2rem;
+            }
+
+            .arcade-btn {
+                width: 100%;
+                max-width: 260px;
+            }
+        }
+
+        /* =====================================================
+           REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+/* =============================================================
+   ESTILOS DEL BOTÓN GIOCOCOIN Y BADGE DE DESCUENTO
+   (antes duplicados de forma idéntica dentro de un <style> inline
+   en CADA página: index, tienda, carrito, quienes-somos,
+   registrarse y terminos. Se consolidan aquí una sola vez).
+   ============================================================= */
+
+/* Estilo personalizado para el botón giococoin en el footer */
+.btn-giococoin {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #ff758c, #ff477e);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(255, 117, 140, 0.3);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-giococoin:hover {
+    background: linear-gradient(135deg, #ff477e, #ff758c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 117, 140, 0.5);
+}
+
+/* Estilo visual para el contador de descuento en el menú */
+.nav-discount-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 209, 102, 0.15);
+    border: 1px solid rgba(255, 209, 102, 0.4);
+    padding: 4px 10px;
+    border-radius: 12px;
+    color: #ffd166;
+    font-weight: bold;
+    font-size: 0.85rem;
+}

@@ -1,6 +1,8 @@
 /* =========================================================
    Kè Cévere / Sabor Criollo
-   JavaScript principale
+   main.js — Lógica GLOBAL compartida por TODAS las páginas
+   (navegación, carrito base, descuento global)
+   Se debe cargar en TODAS las páginas, antes de los demás JS.
    ========================================================= */
 
 const CART_KEY = "carrello";
@@ -60,7 +62,7 @@ function updateGlobalDiscount() {
     }
 }
 
-/* ---------- Carrello ---------- */
+/* ---------- Carrello (base, usado en todas las páginas) ---------- */
 
 function updateCartCount() {
     const count = carrello.reduce((total, product) => total + product.quantita, 0);
@@ -83,90 +85,11 @@ function showToast(message) {
     showToast.timeout = setTimeout(() => toast.classList.remove("show"), 2600);
 }
 
-function addToCart(product) {
-    const existing = carrello.find((item) => item.nome === product.nome);
-    if (existing) existing.quantita += 1;
-    else carrello.push({ ...product, prezzo: Number(product.prezzo), quantita: 1 });
-
-    saveCart();
-    updateCartCount();
-    showToast(`${product.nome} aggiunto al carrello! 🍰`);
-}
-
-function initAddToCartButtons() {
-    document.querySelectorAll(".add-to-cart").forEach((button) => {
-        button.addEventListener("click", () => {
-            addToCart({
-                nome: button.dataset.name,
-                prezzo: button.dataset.price,
-                immagine: button.dataset.image
-            });
-        });
-    });
-}
-
-function renderCart() {
-    const container = document.querySelector("#lista-carrello");
-    if (!container) return;
-
-    const subtotalElement = document.querySelector("#subtotale-prezzo");
-    const shippingElement = document.querySelector("#spedizione-prezzo");
-    const totalElement = document.querySelector("#totale-prezzo");
-    const discount = parseFloat(localStorage.getItem(DISCOUNT_KEY)) || 0;
-    
-    let subtotal = carrello.reduce((sum, p) => sum + (p.prezzo * p.quantita), 0);
-    const finalTotal = Math.max(0, subtotal + SHIPPING_COST - discount);
-
-    if (carrello.length === 0) {
-        container.innerHTML = `<div class="empty-cart"><h3>Il tuo carrello è vuoto</h3></div>`;
-        subtotalElement.textContent = formatPrice(0);
-        totalElement.textContent = formatPrice(0);
-        return;
-    }
-
-    container.innerHTML = carrello.map((product, index) => `
-        <article class="cart-item">
-            <p>${product.nome} - ${product.quantita}x</p>
-        </article>
-    `).join("");
-
-    subtotalElement.textContent = formatPrice(subtotal);
-    totalElement.textContent = formatPrice(finalTotal);
-}
-
-function initClearCart() {
-    document.querySelector("#svuota-carrello")?.addEventListener("click", () => {
-        carrello = [];
-        saveCart();
-        updateCartCount();
-        renderCart();
-    });
-}
-
-function initCheckout() {
-    document.querySelector("#completa-ordine")?.addEventListener("click", () => {
-        showToast("Checkout demo completato!");
-    });
-}
-
-function initRegistration() {
-    const form = document.querySelector("#registro-form");
-    form?.addEventListener("submit", (e) => {
-        e.preventDefault();
-        showToast("Profilo creato!");
-    });
-}
-
-/* ---------- Inicialización Unificada ---------- */
+/* ---------- Inicialización global (corre en TODAS las páginas) ---------- */
 
 document.addEventListener("DOMContentLoaded", () => {
     initNavigation();
-    initAddToCartButtons();
     updateCartCount();
-    renderCart();
-    initClearCart();
-    initCheckout();
-    initRegistration();
     updateGlobalDiscount();
 
     window.addEventListener('storage', (e) => {
