@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinClick Bakery - Dinamico</title>
+    <style>
+        /* --- Variables de Color y Estilos Base --- */
+        :root {
+            --bg-color: #18121e;
+            --card-bg: #2b213a;
+            --accent: #ff758c;
+            --accent-hover: #ff477e;
+            --text: #fff0f3;
+            --text-secondary: #d8b4be;
+            --float-bg: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Fondo animado sutil */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Para que los dulces cayendo no generen scrollbar */
+        }
+
+        .game-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 25px;
+            max-width: 900px;
+            width: 100%;
+            z-index: 10; /* Por encima del fondo animado */
+        }
+
+        .panel {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border: 1px solid rgba(255, 117, 140, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+        }
+
+        /* --- Área del Contador Principal --- */
+        .counter-area {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .main-counter {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #ffd166;
+            text-shadow: 0 2px 10px rgba(255, 209, 102, 0.3);
+            line-height: 1.1;
+        }
+
+        .unit-label {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .production-label {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: rgba(255,255,255,0.05);
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* --- Botón Central de Clic (La Moneda/Dulce) --- */
+        .click-btn-wrapper {
+            position: relative;
+            margin: 30px auto;
+            width: 180px;
+            height: 180px;
+        }
+
+        .coin-btn {
+            background: radial-gradient(circle, #ff9abc 0%, #ff758c 70%, #c7435d 100%);
+            border: 4px solid #fff;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            color: white;
+            font-size: 4rem; /* Icono grande */
+            cursor: pointer;
+            box-shadow: 0 10px 0 #9e354a, 0 15px 25px rgba(0,0,0,0.5);
+            transition: all 0.05s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            padding: 0;
+        }
+
+        .coin-btn:hover {
+            transform: scale(1.02);
+        }
+
+        .coin-btn:active {
+            transform: translateY(5px);
+            box-shadow: 0 5px 0 #9e354a, 0 8px 15px rgba(0,0,0,0.5);
+        }
+
+        /* Efecto de brillo sobre el botón */
+        .coin-btn::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 50px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            transform: rotate(-15deg);
+        }
+
+        /* --- Animación de números flotantes (+1) --- */
+        .floating-num {
+            position: absolute;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            pointer-events: none;
+            animation: floatUp 1s ease-out forwards;
+            z-index: 100;
+            text-shadow: 0 0 5px var(--accent);
+        }
+
+        @keyframes floatUp {
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-50px) scale(1.5); }
+        }
+
+        /* --- Lluvia de Dulces (Elementos cayendo) --- */
+        .falling-object {
+            position: absolute;
+            font-size: 2rem;
+            pointer-events: none;
+            animation: fallAnimation linear forwards;
+            z-index: 1; /* Detrás del botón pero delante del fondo */
+        }
+
+        @keyframes fallAnimation {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* --- Tienda --- */
+        .shop-container {
+            max-height: 450px;
+            overflow-y: auto; /* Scroll si hay muchos ítems */
+            padding-right: 10px;
+        }
+
+        /* Estilo personalizado para la barra de desplazamiento */
+        .shop-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .shop-container::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+        .shop-container::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+        }
+
+        .shop-item {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: background 0.2s;
+        }
+
+        .shop-item:hover {
+            background-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .shop-item-info {
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+
+        .item-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .shop-item h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            color: #ff99ac;
+        }
+
+        .shop-item p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        button.buy-btn {
+            background: linear-gradient(to bottom, var(--accent), var(--accent-hover));
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 0 #9e354a;
+        }
+
+        button.buy-btn:hover {
+            background: linear-gradient(to bottom, var(--accent-hover), var(--accent));
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #9e354a;
+        }
+
+        button.buy-btn:active {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+
+        button.buy-btn:disabled {
+            background: #4a3b4c;
+            color: #8c7690;
+            cursor: not-allowed;
+            opacity: 0.6;
+            box-shadow: none;
+            transform: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .game-container {
+                grid-template-columns: 1fr;
+            }
+            .main-counter { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- Panel Principal Izquierdo -->
+        <div class="panel">
+            <h2>Fabbrica di Dolci</h2>
+            
+            <div class="counter-area">
+                <div class="main-counter" id="coins">0.00</div>
+                <div class="unit-label">Torte 🎂</div>
+                <div class="production-label">Produzione: <span id="power">0</span> Sugar/s</div>
+            </div>
+            
+            <div class="click-btn-wrapper">
+                <!-- Botón principal, el icono es un dulce grande -->
+                <button class="coin-btn" id="clickBtn">🍭</button>
+                <!-- Contenedor para los números flotantes -->
+                <div id="floating-numbers-container"></div>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Clicca per impastare a mano!</p>
+        </div>
+
+        <!-- Panel de Tienda Derecho -->
+        <div class="panel">
+            <h2>Negozio Attrezzature</h2>
+            <div class="shop-container" id="shop-container">
+                <!-- Items generados por JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor separado para la lluvia de dulces (para que no se corte con el panel) -->
+    <div id="falling-sweets-container"></div>
+
+    <script>
+        // --- Estado del Juego ---
+        let game = {
+            coins: 0,
+            totalClicks: 0,
+            power: 0, // Sugar per second
+            clickPower: 1, // Torte per clic
+            sweetTypes: ['🍬', '🍭', '🍩', '🍫', '🍪'],
+            miners: {
+                mixer: { name: "Sbattitore", cost: 15, power: 1, owned: 0, icon: "🥣" },
+                oven: { name: "Forno Base", cost: 100, power: 8, owned: 0, icon: "🔥" },
+                chef: { name: "Pasticcere Capo", cost: 550, power: 45, owned: 0, icon: "👨‍🍳" },
+                factory: { name: "Linea Industriale", cost: 3200, power: 230, owned: 0, icon: "🏭" },
+                magical: { name: "Forno Magico", cost: 15000, power: 1100, owned: 0, icon: "✨" }
+            }
+        };
+
+        // --- Elementos DOM ---
+        const coinsEl = document.getElementById('coins');
+        const powerEl = document.getElementById('power');
+        const clickBtn = document.getElementById('clickBtn');
+        const shopContainer = document.getElementById('shop-container');
+        const floatingContainer = document.getElementById('floating-numbers-container');
+        const fallingContainer = document.getElementById('falling-sweets-container');
+
+        // --- Funciones Principales ---
+
+        function updateUI() {
+            // Formatear números grandes (ej: 1.5k, 2.1m)
+            coinsEl.innerText = formatNumber(game.coins);
+            powerEl.innerText = formatNumber(game.power);
+
+            // Renderizar Tienda
+            shopContainer.innerHTML = '';
+            for (let key in game.miners) {
+                let miner = game.miners[key];
+                let canAfford = game.coins >= miner.cost;
+                
+                let itemDiv = document.createElement('div');
+                itemDiv.className = 'shop-item';
+                itemDiv.innerHTML = `
+                    <div class="shop-item-info">
+                        <div class="item-icon">${miner.icon}</div>
+                        <div>
+                            <h4>${miner.name} (${miner.owned})</h4>
+                            <p>+${formatNumber(miner.power)} Sugar/s<br>Costo: ${formatNumber(miner.cost)} 🎂</p>
+                        </div>
+                    </div>
+                    <button class="buy-btn" onclick="buyMiner('${key}')" ${canAfford ? '' : 'disabled'}>Compra</button>
+                `;
+                shopContainer.appendChild(itemDiv);
+            }
+        }
+
+        // Formateador de números (k, m, b)
+        function formatNumber(num) {
+            if (num < 1000) return num.toFixed(2);
+            if (num < 1000000) return (num / 1000).toFixed(2) + 'k';
+            if (num < 1000000000) return (num / 1000000).toFixed(2) + '
+            
