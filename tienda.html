@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catalogo di dolci venezuelani artigianali di Kè Cévere.">
+    <title>Menu / Prodotti | Kè Cévere - Il Salotto del Gusto</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Kè Cévere - Home">
+                🍰 Kè Cévere <small>| Il Salotto del Gusto</small>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-label="Apri menu" aria-expanded="false">
+                <span></span>
+            </button>
+
+            <nav id="main-nav" aria-label="Navigazione principale">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tienda.html" class="active" aria-current="page">Menu / Prodotti</a></li>
+                    <li><a href="quienes-somos.html">Chi Siamo</a></li>
+                    <li><a href="registrarse.html">Account</a></li>
+                    <li><a href="carrito.html">🛒 Carrello <span class="cart-count" hidden>0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <span class="section-label">Pasticceria artigianale</span>
+            <h1 class="page-title">Catalogo di Dolci Tradizionali</h1>
+            <p class="page-intro">
+                Scegli i tuoi preferiti e aggiungili al carrello. Per garantire la massima freschezza,
+                gli ordini vengono preparati con almeno 24 ore di anticipo.
+            </p>
+        </div>
+
+        <div class="info-strip">🕒 Ordina con almeno 24 ore di anticipo · Consegne ad Arona e Milano</div>
+
+        <section class="grid product-grid" aria-label="Catalogo prodotti">
+
+            <article class="card">
+                <div class="card-image">
+                    <img src="producto1.jpg" alt="Tres Leches Famigliare" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">Tres Leches Famigliare</h2>
+                    <p>Pan di Spagna soffice bagnato in crema di latte, latte condensato e latte evaporato.</p>
+                    <div class="card-footer">
+                        <span class="card-price">€25,00</span>
+                        <span class="card-info">Famigliare</span>
+                    </div>
+                    <button class="btn card-button add-to-cart" type="button" data-name="Tres Leches Famigliare" data-price="25" data-image="producto1.jpg">Aggiungi al Carrello</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image">
+                    <img src="producto2.jpg" alt="Marquesa al Cioccolato" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">Marquesa al Cioccolato</h2>
+                    <p>Preparata con autentico cacao venezuelano al 70% e strati di biscotti Maria.</p>
+                    <div class="card-footer">
+                        <span class="card-price">€18,00</span>
+                        <span class="card-info">Artigianale</span>
+                    </div>
+                    <button class="btn card-button add-to-cart" type="button" data-name="Marquesa al Cioccolato" data-price="18" data-image="producto2.jpg">Aggiungi al Carrello</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image">
+                    <img src="producto4.jpg" alt="Quesillo Venezuelano" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">Quesillo Venezuelano</h2>
+                    <p>Creme caramel tradizionale, compatto e cremoso, con caramello dorato intenso.</p>
+                    <div class="card-footer">
+                        <span class="card-price">€20,00</span>
+                        <span class="card-info">Tradizionale</span>
+                    </div>
+                    <button class="btn card-button add-to-cart" type="button" data-name="Quesillo Venezuelano" data-price="20" data-image="producto4.jpg">Aggiungi al Carrello</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image">
+                    <img src="producto3.jpg" alt="Vassoio di Golfeados" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">Vassoio di Golfeados (4 pz)</h2>
+                    <p>Con sciroppo concentrato di panela, anice e formaggio fresco filante.</p>
+                    <div class="card-footer">
+                        <span class="card-price">€12,00</span>
+                        <span class="card-info">4 pezzi</span>
+                    </div>
+                    <button class="btn card-button add-to-cart" type="button" data-name="Vassoio di Golfeados (4 pz)" data-price="12" data-image="producto3.jpg">Aggiungi al Carrello</button>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Sabor Criollo Italia</h4>
+                <p>Dolci artigianali venezuelani ad Arona (Piemonte) e Milano (Lombardia).</p>
+            </div>
+            <div class="footer-section">
+                <h4>Link Rapidi</h4>
+                <ul>
+                    <li><a href="tienda.html">Vedi Prodotti</a></li>
+                    <li><a href="quienes-somos.html">La Nostra Storia</a></li>
+                    <li><a href="terminos.html">Termini e Condizioni</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Servizio Clienti</h4>
+                <p>📍 Consegne ad Arona e Milano</p>
+                <p>📞 WhatsApp: +39 348 7541138</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kè Cévere - Il Salotto del Gusto. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

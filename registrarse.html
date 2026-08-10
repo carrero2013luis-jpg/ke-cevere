@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crea il tuo account Kè Cévere.">
+    <title>Account | Kè Cévere - Il Salotto del Gusto</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Kè Cévere - Home">
+                🍰 Kè Cévere <small>| Il Salotto del Gusto</small>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-label="Apri menu" aria-expanded="false">
+                <span></span>
+            </button>
+
+            <nav id="main-nav" aria-label="Navigazione principale">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tienda.html">Menu / Prodotti</a></li>
+                    <li><a href="quienes-somos.html">Chi Siamo</a></li>
+                    <li><a href="registrarse.html" class="active" aria-current="page">Account</a></li>
+                    <li><a href="carrito.html">🛒 Carrello <span class="cart-count" hidden>0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="form-container">
+            <div class="form-header">
+                <span class="section-label">Il tuo profilo</span>
+                <h1>Crea un Account</h1>
+                <p>Salva i tuoi dati di contatto per rendere più semplice il prossimo ordine.</p>
+            </div>
+
+            <form id="registro-form" novalidate>
+                <div class="form-group">
+                    <label for="nome">Nome e Cognome</label>
+                    <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Es. Maria Rossi" minlength="2" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Indirizzo Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" placeholder="tua@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="zona">Zona di Consegna</label>
+                    <select id="zona" name="zona" required>
+                        <option value="">Seleziona la tua provincia</option>
+                        <option value="arona">Arona / Novara (Piemonte)</option>
+                        <option value="milano">Milano e provincia (Lombardia)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Minimo 6 caratteri" minlength="6" required>
+                </div>
+
+                <label class="form-check">
+                    <input id="privacy" type="checkbox" required>
+                    <span>Accetto i <a href="terminos.html" style="color: var(--primary-dark); font-weight: 700;">Termini e Condizioni</a>.</span>
+                </label>
+
+                <button type="submit" class="btn" style="width: 100%;">Registrati</button>
+            </form>
+
+            <p id="registro-messaggio" class="notice" hidden style="margin-top: 1rem;">
+                Account demo creato correttamente.
+            </p>
+
+            <p style="margin-top: 1rem; color: var(--text-muted); font-size: .76rem; text-align: center;">
+                Demo frontend: la password non viene salvata nel browser.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Sabor Criollo Italia</h4>
+                <p>Dolci artigianali venezuelani ad Arona (Piemonte) e Milano (Lombardia).</p>
+            </div>
+            <div class="footer-section">
+                <h4>Link Rapidi</h4>
+                <ul>
+                    <li><a href="tienda.html">Vedi Prodotti</a></li>
+                    <li><a href="quienes-somos.html">La Nostra Storia</a></li>
+                    <li><a href="terminos.html">Termini e Condizioni</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Servizio Clienti</h4>
+                <p>📍 Consegne ad Arona e Milano</p>
+                <p>📞 WhatsApp: +39 348 7541138</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kè Cévere - Il Salotto del Gusto. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
