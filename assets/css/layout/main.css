@@ -1,0 +1,47 @@
+/* Contenedor principal y encabezados de página */
+
+/* =========================================================
+   SECCIONES
+   ========================================================= */
+
+.featured-products {
+    padding-top: 4rem;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+
+    text-align: center;
+}
+
+.page-header .page-intro {
+    max-width: 680px;
+
+    margin: 0 auto;
+}
+
+.info-strip {
+    margin: 0 auto 2rem;
+
+    padding: 0.9rem 1rem;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.55rem;
+
+    border: 1px solid #fed7aa;
+
+    border-radius: 12px;
+
+    background: #fff7ed;
+
+    color: #9a3412;
+
+    text-align: center;
+
+    font-size: 0.9rem;
+}

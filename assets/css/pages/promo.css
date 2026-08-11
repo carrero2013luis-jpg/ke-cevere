@@ -1,0 +1,122 @@
+/* Promo flotante de giococoin */
+
+/* =============================================================
+   ANUNCIO FLOTANTE GIOCOCOIN (index.html)
+   Rebota desde abajo y se detiene en el centro de la pantalla.
+   ============================================================= */
+
+.game-promo-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(41, 37, 36, 0.55);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+}
+
+.game-promo-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.game-promo-overlay.hide {
+    opacity: 0;
+}
+
+.game-promo-card {
+    position: relative;
+    max-width: 380px;
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: 40px 28px 32px;
+    text-align: center;
+    transform: translateY(120vh);
+    transition: transform 0.3s ease;
+}
+
+.game-promo-overlay.show .game-promo-card {
+    animation: game-promo-bounce-in 0.9s cubic-bezier(0.28, 1.4, 0.5, 1) forwards;
+}
+
+@keyframes game-promo-bounce-in {
+    0% {
+        transform: translateY(120vh);
+    }
+    55% {
+        transform: translateY(-24px);
+    }
+    75% {
+        transform: translateY(10px);
+    }
+    90% {
+        transform: translateY(-4px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.game-promo-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+}
+
+.game-promo-close:hover {
+    color: var(--text);
+}
+
+.game-promo-emoji {
+    font-size: 2.6rem;
+    margin-bottom: 8px;
+}
+
+.game-promo-card h3 {
+    color: var(--primary-dark);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.game-promo-card p {
+    color: var(--text-muted);
+    margin-bottom: 22px;
+    font-size: 0.95rem;
+}
+
+.game-promo-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-promo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .game-promo-overlay.show .game-promo-card {
+        animation: none;
+        transform: translateY(0);

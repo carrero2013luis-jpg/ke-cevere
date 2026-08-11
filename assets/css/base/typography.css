@@ -1,0 +1,82 @@
+/* Tipografía y utilidades de texto */
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.main-content {
+    width: min(100% - 2rem, var(--container));
+
+    margin: 0 auto;
+
+    flex: 1;
+
+    padding: 3.5rem 0 5rem;
+}
+
+.container {
+    width: min(100% - 2rem, var(--container));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   TIPOGRAFÍA
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.15;
+}
+
+.section-heading {
+    max-width: 720px;
+
+    margin: 0 auto 2.2rem;
+
+    text-align: center;
+}
+
+.section-label,
+.eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.45rem;
+
+    margin-bottom: 0.65rem;
+
+    padding: 0.4rem 0.75rem;
+
+    border-radius: 999px;
+
+    background: #ffedd5;
+
+    color: var(--primary-dark);
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    letter-spacing: 0.06em;
+
+    text-transform: uppercase;
+}
+
+.section-heading h2,
+.page-title {
+    margin-bottom: 0.75rem;
+
+    color: var(--secondary);
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    line-height: 1.12;
+}
+
+.section-heading p,
+.page-intro {
+    color: var(--text-muted);
+}

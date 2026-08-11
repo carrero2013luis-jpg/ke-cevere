@@ -1,0 +1,129 @@
+/* Botones y acciones */
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.btn {
+    min-height: 46px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.45rem;
+
+    padding: 0.72rem 1.05rem;
+
+    border-radius: 12px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 18px rgba(217, 119, 6, 0.18);
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 22px rgba(217, 119, 6, 0.24);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: transparent;
+
+    color: var(--secondary);
+
+    border: 1px solid var(--border);
+
+    box-shadow: none;
+}
+
+.btn-secondary:hover {
+    background: white;
+
+    color: var(--primary-dark);
+
+    box-shadow: none;
+}
+
+.btn-danger {
+    background: #fee2e2;
+
+    color: var(--danger);
+
+    box-shadow: none;
+}
+
+.btn-danger:hover {
+    background: #fecaca;
+
+    color: #991b1b;
+
+    box-shadow: none;
+}
+
+.btn-small {
+    min-height: 38px;
+
+    padding: 0.5rem 0.75rem;
+
+    font-size: 0.86rem;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+
+
+/* Estilo personalizado para el botón giococoin en el footer */
+.btn-giococoin {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #ff758c, #ff477e);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(255, 117, 140, 0.3);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-giococoin:hover {
+    background: linear-gradient(135deg, #ff477e, #ff758c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 117, 140, 0.5);
+}
+
+
+.btn-full { width: 100%; }

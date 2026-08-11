@@ -8,25 +8,25 @@
  * pages/      -> estilos específicos de cada página/feature
  */
 
-@import url("base/_variables.css");
-@import url("base/_reset.css");
-@import url("base/_typography.css");
+@import url("base/variables.css");
+@import url("base/reset.css");
+@import url("base/typography.css");
 
-@import url("layout/_main.css");
-@import url("layout/_header.css");
-@import url("layout/_footer.css");
+@import url("layout/main.css");
+@import url("layout/header.css");
+@import url("layout/footer.css");
 
-@import url("components/_buttons.css");
-@import url("components/_cards.css");
-@import url("components/_content.css");
-@import url("components/_forms.css");
-@import url("components/_cart.css");
-@import url("components/_toast.css");
-@import url("components/_badges.css");
+@import url("components/buttons.css");
+@import url("components/cards.css");
+@import url("components/content.css");
+@import url("components/forms.css");
+@import url("components/cart.css");
+@import url("components/toast.css");
+@import url("components/badges.css");
 
-@import url("layout/_responsive.css");
+@import url("layout/responsive.css");
 
-@import url("pages/_home.css");
-@import url("pages/_terms.css");
-@import url("pages/_game.css");
-@import url("pages/_promo.css");
+@import url("pages/home.css");
+@import url("pages/terms.css");
+@import url("pages/game.css");
+@import url("pages/promo.css");
