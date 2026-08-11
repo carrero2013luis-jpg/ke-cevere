@@ -252,6 +252,13 @@
             z-index: 200;
         }
 
+        /* El atributo HTML hidden debe ocultar realmente el overlay.
+           Usamos hidden desde JavaScript para evitar que la pantalla
+           inicial y la pantalla final se superpongan. */
+        .overlay-screen[hidden] {
+            display: none !important;
+        }
+
         .overlay-screen h2 {
             color: var(--accent);
             margin-bottom: 12px;
@@ -259,7 +266,7 @@
         }
 
         .overlay-screen p {
-            color: var(--text-secondary);
+            color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 25px;
@@ -652,3 +659,11 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+/* =====================================================
+   TEXTO DE RESULTADO
+===================================================== */
+
+#end-message {
+    color: var(--text) !important;
+}

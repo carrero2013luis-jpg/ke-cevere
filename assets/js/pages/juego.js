@@ -258,11 +258,9 @@
             );
 
 
-            startScreen.style.display =
-                'none';
-
-            endScreen.style.display =
-                'none';
+            // Mostrar únicamente el tablero: ocultamos ambas pantallas.
+            startScreen.hidden = true;
+            endScreen.hidden = true;
 
 
             // Limpiar completamente el área
@@ -570,8 +568,9 @@
 
             /* Mostrar pantalla */
 
-            endScreen.style.display =
-                'flex';
+            // Mostrar la pantalla final y mantener oculta la pantalla inicial.
+            startScreen.hidden = true;
+            endScreen.hidden = false;
 
 
             endTitle.innerText =
@@ -702,8 +701,9 @@
                 );
 
 
-            endScreen.style.display =
-                'flex';
+            // Mostrar la pantalla final y mantener oculta la pantalla inicial.
+            startScreen.hidden = true;
+            endScreen.hidden = false;
 
 
             endActionBtn.innerText =
@@ -868,12 +868,8 @@
 
         function resetToMenu() {
 
-            endScreen.style.display =
-                'none';
-
-
-            startScreen.style.display =
-                'flex';
+            endScreen.hidden = true;
+            startScreen.hidden = false;
 
 
             /* Limpiar todo */
