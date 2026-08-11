@@ -1,0 +1,306 @@
+/* Componentes del carrito */
+
+/* =========================================================
+   CARRITO
+   ========================================================= */
+
+.cart-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.6fr)
+        minmax(300px, 0.9fr);
+
+    gap: 1.4rem;
+
+    align-items: start;
+}
+
+.cart-panel,
+.summary-panel {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.cart-panel {
+    padding: 1.25rem;
+}
+
+.summary-panel {
+    position: sticky;
+
+    top: 100px;
+
+    padding: 1.35rem;
+}
+
+.panel-title {
+    margin-bottom: 1rem;
+
+    color: var(--secondary);
+
+    font-size: 1.2rem;
+}
+
+
+/* Producto dentro del carrito */
+
+.cart-item {
+    display: grid;
+
+    grid-template-columns:
+        86px
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    padding: 1rem 0;
+
+    border-top: 1px solid var(--border);
+}
+
+.cart-item:first-child {
+    border-top: 0;
+
+    padding-top: 0;
+}
+
+.cart-item-image {
+    width: 86px;
+    height: 70px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #f5f5f4;
+}
+
+.cart-item-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.cart-item h3 {
+    margin-bottom: 0.2rem;
+
+    color: var(--secondary);
+
+    font-size: 0.98rem;
+}
+
+.cart-item-price {
+    color: var(--text-muted);
+
+    font-size: 0.82rem;
+}
+
+.cart-item-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    margin-top: 0.55rem;
+}
+
+.qty-control {
+    display: inline-flex;
+
+    align-items: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    overflow: hidden;
+
+    background: #fffaf3;
+}
+
+.qty-control button {
+    width: 32px;
+    height: 32px;
+
+    background: transparent;
+
+    color: var(--secondary);
+
+    cursor: pointer;
+
+    font-weight: 900;
+}
+
+.qty-control button:hover {
+    background: #ffedd5;
+}
+
+.qty-value {
+    min-width: 30px;
+
+    text-align: center;
+
+    font-size: 0.88rem;
+
+    font-weight: 800;
+}
+
+.cart-item-total {
+    text-align: right;
+
+    color: var(--secondary);
+
+    font-weight: 900;
+}
+
+.cart-remove {
+    margin-top: 0.35rem;
+
+    background: transparent;
+
+    color: var(--danger);
+
+    cursor: pointer;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+}
+
+.cart-remove:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   RESUMEN DEL CARRITO
+   ========================================================= */
+
+.summary-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    margin-bottom: 0.7rem;
+
+    color: #57534e;
+}
+
+.summary-row.total {
+    margin-top: 0.9rem;
+
+    padding-top: 0.9rem;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--secondary);
+
+    font-size: 1.15rem;
+
+    font-weight: 900;
+}
+
+.payment-options {
+    display: grid;
+
+    gap: 0.6rem;
+
+    margin: 1.25rem 0;
+}
+
+.payment-option {
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.55rem;
+
+    padding: 0.7rem 0.75rem;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 0.88rem;
+
+    transition:
+        border-color var(--transition),
+        background var(--transition);
+}
+
+.payment-option:hover {
+    border-color: #fdba74;
+
+    background: #fffaf3;
+}
+
+.payment-option input:checked + span {
+    color: var(--primary-dark);
+
+    font-weight: 800;
+}
+
+
+/* Carrito vacío */
+
+.empty-cart {
+    padding: 2.5rem 1rem;
+
+    text-align: center;
+
+    color: var(--text-muted);
+}
+
+.empty-cart-icon {
+    margin-bottom: 0.6rem;
+
+    font-size: 3rem;
+}
+
+.cart-actions {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 0.75rem;
+
+    margin-top: 1rem;
+}
+
+
+/* =========================================================
+   CHECKOUT
+   ========================================================= */
+
+.checkout-box {
+    margin-top: 1.2rem;
+
+    padding: 1rem;
+
+    border: 1px solid #bbf7d0;
+
+    border-radius: 12px;
+
+    background: #f0fdf4;
+
+    color: #166534;
+
+    font-size: 0.9rem;
+}

@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Termini e condizioni del servizio Kè Cévere.">
-    <title>Termini e Condizioni | Kè Cévere - Il Salotto del Gusto</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Catalogo di dolci venezuelani artigianali di Kè Cévere.">
+    <title>Menu / Prodotti | Kè Cévere - Il Salotto del Gusto</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body>
+<body data-root="../">
 
     <header>
         <div class="header-container">
-            <a href="index.html" class="logo" aria-label="Kè Cévere - Home">
+            <a href="../index.html" class="logo" aria-label="Kè Cévere - Home">
                 🍰 Kè Cévere <small>| Il Salotto del Gusto</small>
             </a>
 
@@ -21,8 +21,8 @@
 
             <nav id="main-nav" aria-label="Navigazione principale">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="tienda.html">Menu / Prodotti</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="tienda.html" class="active" aria-current="page">Menu / Prodotti</a></li>
                     <li><a href="quienes-somos.html">Chi Siamo</a></li>
                     <li><a href="registrarse.html">Account</a></li>
                     <li>
@@ -35,36 +35,20 @@
     </header>
 
     <main class="main-content">
-        <article class="content-panel">
-            <span class="section-label">Informazioni</span>
-            <h1 class="page-title" style="text-align: left; margin-top: .35rem;">Termini e Condizioni del Servizio</h1>
-            <p class="page-intro">Informazioni generali sugli ordini, le consegne e il checkout del progetto.</p>
-
-            <h3>1. Ordini e Consegne</h3>
-            <p>
-                Gli ordini di dolci artigianali devono essere effettuati con almeno 24 ore di anticipo.
-                Consegniamo nella zona di Arona (Piemonte) e nella città di Milano (Lombardia), previa coordinazione dell'orario.
+        <div class="page-header">
+            <span class="section-label">Pasticceria artigianale</span>
+            <h1 class="page-title">Catalogo di Dolci Tradizionali</h1>
+            <p class="page-intro">
+                Scegli i tuoi preferiti e aggiungili al carrello. Per garantire la massima freschezza,
+                gli ordini vengono preparati con almeno 24 ore di anticipo.
             </p>
+        </div>
 
-            <h3>2. Metodi di Pagamento</h3>
-            <p>
-                Il sito mostra carte di credito/debito, PayPal e Satispay come opzioni previste.
-                Nella versione attuale del progetto, il checkout è dimostrativo e non esegue transazioni reali.
-            </p>
+        <div class="info-strip">🕒 Ordina con almeno 24 ore di anticipo · Consegne ad Arona e Milano</div>
 
-            <h3>3. Cancellazioni e Resi</h3>
-            <p>
-                Trattandosi di prodotti alimentari deperibili preparati su ordinazione, le cancellazioni
-                devono essere concordate con il servizio clienti entro i tempi indicati per l'ordine.
-            </p>
-
-            <h3>4. Informativa sulla Privacy</h3>
-            <p>
-                Il modulo account della demo salva localmente solo nome, email e zona di consegna.
-                La password non viene salvata. Per un sito reale è necessario collegare un backend sicuro
-                e una gestione della privacy conforme alla normativa applicabile.
-            </p>
-        </article>
+        <section class="grid product-grid" id="product-grid" aria-label="Catalogo prodotti">
+            <!-- Los productos se generan automaticamente desde data/productos.json (js/productos.js) -->
+        </section>
     </main>
 
     <footer>
@@ -94,6 +78,8 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="../assets/js/core/main.js"></script>
+    <script src="../assets/js/pages/tienda.js"></script>
+    <script src="../assets/js/components/productos.js"></script>
 </body>
 </html>

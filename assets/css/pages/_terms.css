@@ -1,0 +1,43 @@
+/* Página de términos */
+
+/* =========================================================
+   TÉRMINOS
+   ========================================================= */
+
+.terms-content {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.terms-content section {
+    margin-bottom: 2rem;
+}
+
+.terms-content section:last-child {
+    margin-bottom: 0;
+}
+
+.terms-content h2 {
+    margin-bottom: 0.75rem;
+
+    color: var(--secondary);
+
+    font-size: 1.45rem;
+}
+
+.terms-content p {
+    margin-bottom: 0.75rem;
+
+    color: #57534e;
+}

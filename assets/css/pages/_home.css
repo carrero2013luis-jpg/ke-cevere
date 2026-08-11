@@ -1,0 +1,100 @@
+/* Página de inicio */
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 500px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: clamp(2.5rem, 7vw, 5.5rem);
+
+    border-radius: var(--radius-lg);
+
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(245, 158, 11, 0.20),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #fff2df 0%,
+            #fffaf3 52%,
+            #fde8cf 100%
+        );
+
+    box-shadow: var(--shadow-md);
+
+    border: 1px solid var(--border);
+}
+
+.hero::after {
+    content: "🍰";
+
+    position: absolute;
+
+    right: 7%;
+    bottom: -18px;
+
+    font-size: clamp(7rem, 18vw, 14rem);
+
+    opacity: 0.12;
+
+    transform: rotate(-10deg);
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 1;
+
+    max-width: 720px;
+}
+
+.hero h1 {
+    margin-bottom: 1rem;
+
+    color: var(--secondary);
+
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+
+    line-height: 0.98;
+
+    letter-spacing: -0.045em;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: var(--primary);
+}
+
+.hero p {
+    max-width: 650px;
+
+    margin-bottom: 1.7rem;
+
+    color: #57534e;
+
+    font-size: 1.08rem;
+}
+
+.hero-actions,
+.hero-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.75rem;
+}

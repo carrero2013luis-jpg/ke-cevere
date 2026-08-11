@@ -1,0 +1,293 @@
+/* Responsive global */
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 980px) {
+
+    .product-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-panel {
+        position: static;
+    }
+
+    .about-highlights {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 780px) {
+
+    .header-container {
+        min-height: 68px;
+    }
+
+    .logo small {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+
+    nav {
+        position: absolute;
+
+        top: 68px;
+
+        left: 0;
+        right: 0;
+
+        display: none;
+
+        padding: 0.8rem 1rem 1rem;
+
+        background: rgba(255, 250, 243, 0.98);
+
+        border-bottom: 1px solid var(--border);
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    nav.open {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    nav a {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+
+    /* Contenido */
+
+    .main-content {
+        width: min(100% - 1.2rem, var(--container));
+
+        padding: 2.2rem 0 3.5rem;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        min-height: 450px;
+
+        padding: 2rem 1.4rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.25rem, 11vw, 3.6rem);
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-actions,
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn,
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+
+    /* Productos */
+
+    .grid,
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Chi Siamo */
+
+    .about-highlights {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Footer */
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 1.3rem;
+
+        padding: 2.2rem 0;
+
+        text-align: center;
+    }
+
+    .footer-section ul {
+        justify-items: center;
+    }
+
+
+    /* Carrito */
+
+    .cart-item {
+        grid-template-columns:
+            68px
+            minmax(0, 1fr);
+    }
+
+    .cart-item-image {
+        width: 68px;
+        height: 58px;
+    }
+
+    .cart-item-total {
+        grid-column: 2;
+
+        text-align: left;
+    }
+
+    .cart-actions {
+        flex-direction: column;
+    }
+
+    .cart-actions .btn {
+        width: 100%;
+    }
+
+
+    /* Formularios */
+
+    .form-container {
+        padding: 1.35rem;
+    }
+
+
+    /* Juego */
+
+    .game-container {
+        padding: 1.2rem;
+    }
+
+    .game-board {
+        min-height: 320px;
+    }
+}
+
+
+/* =========================================================
+   MÓVIL PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .main-content {
+        width: 94%;
+
+        padding: 2rem 0 3rem;
+    }
+
+    .header-container {
+        width: 94%;
+    }
+
+    .logo {
+        font-size: 1.05rem;
+    }
+
+    .hero {
+        min-height: 470px;
+
+        padding: 2.5rem 1.2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.15rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .section-heading h2 {
+        font-size: 2rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .cart-panel {
+        padding: 1rem;
+    }
+
+    .summary-panel {
+        padding: 1.1rem;
+    }
+
+    .toast {
+        right: 1rem;
+        left: 1rem;
+
+        bottom: 1rem;
+
+        max-width: none;
+    }
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+   ========================================================= */
+
+:focus-visible {
+    outline: 3px solid rgba(217, 119, 6, 0.4);
+
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *:not(.falling-item),
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   FIN DEL CSS
+   ========================================================= */

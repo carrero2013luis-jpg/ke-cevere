@@ -24,7 +24,7 @@ function crearTarjetaTienda(producto) {
 
     article.innerHTML = `
         <div class="card-image">
-            <img src="img/productos/${producto.imagen}" alt="${producto.nombre}" loading="lazy">
+            <img src="${APP_ROOT}assets/img/productos/${producto.imagen}" alt="${producto.nombre}" loading="lazy">
         </div>
         <div class="card-body">
             <h2 class="card-title">${producto.nombre}</h2>
@@ -51,7 +51,7 @@ function crearTarjetaDestacada(producto) {
 
     article.innerHTML = `
         <div class="card-image">
-            <img src="img/productos/${producto.imagen}" alt="${producto.nombre}" loading="lazy">
+            <img src="${APP_ROOT}assets/img/productos/${producto.imagen}" alt="${producto.nombre}" loading="lazy">
         </div>
         <div class="card-body">
             <h3 class="card-title">${producto.nombre}</h3>
@@ -59,7 +59,7 @@ function crearTarjetaDestacada(producto) {
                 <span class="card-price">${formatPriceEUR(producto.precio)}</span>
                 <span class="card-info">${producto.info}</span>
             </div>
-            <a href="tienda.html" class="btn card-button">Vedi prodotto</a>
+            <a href="${APP_ROOT}pages/tienda.html" class="btn card-button">Vedi prodotto</a>
         </div>
     `;
 
@@ -73,7 +73,7 @@ async function cargarProductos() {
     if (!gridTienda && !gridDestacados) return;
 
     try {
-        const response = await fetch("data/productos.json");
+        const response = await fetch(`${APP_ROOT}assets/data/productos.json`);
         const productos = await response.json();
 
         if (gridTienda) {
@@ -99,7 +99,7 @@ async function cargarProductos() {
         }
 
     } catch (error) {
-        console.error("No se pudo cargar data/productos.json", error);
+        console.error("No se pudo cargar assets/data/productos.json", error);
     }
 }
 

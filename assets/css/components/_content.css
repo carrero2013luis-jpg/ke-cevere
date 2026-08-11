@@ -1,0 +1,138 @@
+/* Paneles y contenido informativo */
+
+/* =========================================================
+   CHI SIAMO
+   ========================================================= */
+
+.content-panel {
+    max-width: 880px;
+
+    margin: 0 auto;
+
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.content-panel h2,
+.content-panel h3 {
+    color: var(--secondary);
+}
+
+.content-panel h2 {
+    margin-bottom: 0.8rem;
+
+    font-size: 2rem;
+}
+
+.content-panel h3 {
+    margin: 1.8rem 0 0.55rem;
+
+    color: var(--primary-dark);
+}
+
+.content-panel p {
+    margin-bottom: 1rem;
+
+    color: #57534e;
+}
+
+
+/* Lista con checks */
+
+.check-list {
+    display: grid;
+
+    gap: 0.7rem;
+
+    margin-top: 1rem;
+}
+
+.check-list li {
+    position: relative;
+
+    padding-left: 1.7rem;
+
+    color: #57534e;
+}
+
+.check-list li::before {
+    content: "✓";
+
+    position: absolute;
+
+    left: 0;
+
+    color: var(--success);
+
+    font-weight: 900;
+}
+
+
+/* Destacados */
+
+.about-highlights {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 1rem;
+
+    margin-top: 2rem;
+}
+
+.highlight {
+    padding: 1.15rem;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-sm);
+
+    background: var(--surface-soft);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.highlight:hover {
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.highlight-icon {
+    margin-bottom: 0.45rem;
+
+    font-size: 1.7rem;
+}
+
+.highlight h3 {
+    margin: 0 0 0.25rem;
+
+    font-size: 1rem;
+}
+
+.highlight p {
+    margin: 0;
+
+    font-size: 0.88rem;
+}
+
+
+/* Utilidades semánticas que sustituyen estilos inline */
+.section-heading--compact { margin-bottom: 1.5rem; }
+.page-title--left { text-align: left; margin-top: .35rem; }
+.subsection-title { margin-top: 2rem; }
+.terms-link { color: var(--primary-dark); font-weight: 700; }
+.btn-full { width: 100%; }
+.form-note,
+.checkout-note { margin-top: 1rem; color: var(--text-muted); font-size: .76rem; text-align: center; }
+.payment-title { margin-top: 1.4rem; color: var(--secondary); font-size: 1rem; }

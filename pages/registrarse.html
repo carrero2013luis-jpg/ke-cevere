@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Crea il tuo account Kè Cévere.">
     <title>Account | Kè Cévere - Il Salotto del Gusto</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body>
+<body data-root="../">
 
     <header>
         <div class="header-container">
-            <a href="index.html" class="logo" aria-label="Kè Cévere - Home">
+            <a href="../index.html" class="logo" aria-label="Kè Cévere - Home">
                 🍰 Kè Cévere <small>| Il Salotto del Gusto</small>
             </a>
 
@@ -21,7 +21,7 @@
 
             <nav id="main-nav" aria-label="Navigazione principale">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="tienda.html">Menu / Prodotti</a></li>
                     <li><a href="quienes-somos.html">Chi Siamo</a></li>
                     <li><a href="registrarse.html" class="active" aria-current="page">Account</a></li>
@@ -69,17 +69,17 @@
 
                 <label class="form-check">
                     <input id="privacy" type="checkbox" required>
-                    <span>Accetto i <a href="terminos.html" style="color: var(--primary-dark); font-weight: 700;">Termini e Condizioni</a>.</span>
+                    <span>Accetto i <a href="terminos.html" class="terms-link">Termini e Condizioni</a>.</span>
                 </label>
 
-                <button type="submit" class="btn" style="width: 100%;">Registrati</button>
+                <button type="submit" class="btn btn-full">Registrati</button>
             </form>
 
             <p id="registro-messaggio" class="notice" hidden style="margin-top: 1rem;">
                 Account demo creato correttamente.
             </p>
 
-            <p style="margin-top: 1rem; color: var(--text-muted); font-size: .76rem; text-align: center;">
+            <p class="form-note">
                 Demo frontend: la password non viene salvata nel browser.
             </p>
         </section>
@@ -112,7 +112,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/registro.js"></script>
+    <script src="../assets/js/core/main.js"></script>
+    <script src="../assets/js/pages/registro.js"></script>
 </body>
 </html>

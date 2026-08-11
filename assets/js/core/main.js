@@ -9,6 +9,7 @@ const CART_KEY = "carrello";
 const PROFILE_KEY = "cliente";
 const SHIPPING_COST = 5;
 const DISCOUNT_KEY = "kecevere_discount";
+const APP_ROOT = document.body?.dataset.root || "./";
 
 let carrello = loadCart();
 
@@ -96,7 +97,5 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === DISCOUNT_KEY) updateGlobalDiscount();
     });
 
-    // MODO DESARROLLADOR: Bypass intentos de juego
-    const todayKey = new Date().toISOString().slice(0, 10);
-    localStorage.setItem('kecevere_arcade', JSON.stringify({ date: todayKey, plays: 0 }));
+
 });
