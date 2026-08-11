@@ -9,6 +9,12 @@
     --primary-dark: #b45309;
     --secondary: #78350f;
     --accent: #f59e0b;
+    --accent-hover: #d97706;
+
+    /* Variables usadas por el arcade */
+    --border-color: var(--border);
+    --cabinet-bg: #ffffff;
+    --panel-bg: #fffaf3;
 
     --cream: #fffaf3;
     --surface: #ffffff;
