@@ -46,68 +46,8 @@
 
         <div class="info-strip">🕒 Ordina con almeno 24 ore di anticipo · Consegne ad Arona e Milano</div>
 
-        <section class="grid product-grid" aria-label="Catalogo prodotti">
-
-            <article class="card">
-                <div class="card-image">
-                    <img src="img/productos/producto1.jpg" alt="Tres Leches Famigliare" loading="lazy">
-                </div>
-                <div class="card-body">
-                    <h2 class="card-title">Tres Leches Famigliare</h2>
-                    <p>Pan di Spagna soffice bagnato in crema di latte, latte condensato e latte evaporato.</p>
-                    <div class="card-footer">
-                        <span class="card-price">€25,00</span>
-                        <span class="card-info">Famigliare</span>
-                    </div>
-                    <button class="btn card-button add-to-cart" type="button" data-name="Tres Leches Famigliare" data-price="25" data-image="producto1.jpg">Aggiungi al Carrello</button>
-                </div>
-            </article>
-
-            <article class="card">
-                <div class="card-image">
-                    <img src="img/productos/producto2.jpg" alt="Marquesa al Cioccolato" loading="lazy">
-                </div>
-                <div class="card-body">
-                    <h2 class="card-title">Marquesa al Cioccolato</h2>
-                    <p>Preparata con autentico cacao venezuelano al 70% e strati di biscotti Maria.</p>
-                    <div class="card-footer">
-                        <span class="card-price">€18,00</span>
-                        <span class="card-info">Artigianale</span>
-                    </div>
-                    <button class="btn card-button add-to-cart" type="button" data-name="Marquesa al Cioccolato" data-price="18" data-image="producto2.jpg">Aggiungi al Carrello</button>
-                </div>
-            </article>
-
-            <article class="card">
-                <div class="card-image">
-                    <img src="img/productos/producto4.jpg" alt="Quesillo Venezuelano" loading="lazy">
-                </div>
-                <div class="card-body">
-                    <h2 class="card-title">Quesillo Venezuelano</h2>
-                    <p>Creme caramel tradizionale, compatto e cremoso, con caramello dorato intenso.</p>
-                    <div class="card-footer">
-                        <span class="card-price">€20,00</span>
-                        <span class="card-info">Tradizionale</span>
-                    </div>
-                    <button class="btn card-button add-to-cart" type="button" data-name="Quesillo Venezuelano" data-price="20" data-image="producto4.jpg">Aggiungi al Carrello</button>
-                </div>
-            </article>
-
-            <article class="card">
-                <div class="card-image">
-                    <img src="img/productos/producto3.jpg" alt="Vassoio di Golfeados" loading="lazy">
-                </div>
-                <div class="card-body">
-                    <h2 class="card-title">Vassoio di Golfeados (4 pz)</h2>
-                    <p>Con sciroppo concentrato di panela, anice e formaggio fresco filante.</p>
-                    <div class="card-footer">
-                        <span class="card-price">€12,00</span>
-                        <span class="card-info">4 pezzi</span>
-                    </div>
-                    <button class="btn card-button add-to-cart" type="button" data-name="Vassoio di Golfeados (4 pz)" data-price="12" data-image="producto3.jpg">Aggiungi al Carrello</button>
-                </div>
-            </article>
-
+        <section class="grid product-grid" id="product-grid" aria-label="Catalogo prodotti">
+            <!-- Los productos se generan automaticamente desde data/productos.json (js/productos.js) -->
         </section>
     </main>
 
@@ -140,5 +80,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/tienda.js"></script>
+    <script src="js/productos.js"></script>
 </body>
 </html>

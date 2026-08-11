@@ -1,0 +1,38 @@
+[
+  {
+    "id": "producto1",
+    "nombre": "Tres Leches Famigliare",
+    "descripcion": "Pan di Spagna soffice bagnato in crema di latte, latte condensato e latte evaporato.",
+    "precio": 25,
+    "info": "Famigliare",
+    "imagen": "producto1.jpg",
+    "destacado": true
+  },
+  {
+    "id": "producto2",
+    "nombre": "Marquesa al Cioccolato",
+    "descripcion": "Preparata con autentico cacao venezuelano al 70% e strati di biscotti Maria.",
+    "precio": 18,
+    "info": "Artigianale",
+    "imagen": "producto2.jpg",
+    "destacado": true
+  },
+  {
+    "id": "producto3",
+    "nombre": "Vassoio di Golfeados (4 pz)",
+    "descripcion": "Con sciroppo concentrato di panela, anice e formaggio fresco filante.",
+    "precio": 12,
+    "info": "4 pezzi",
+    "imagen": "producto3.jpg",
+    "destacado": true
+  },
+  {
+    "id": "producto4",
+    "nombre": "Quesillo Venezuelano",
+    "descripcion": "Creme caramel tradizionale, compatto e cremoso, con caramello dorato intenso.",
+    "precio": 20,
+    "info": "Tradizionale",
+    "imagen": "producto4.jpg",
+    "destacado": false
+  }
+]
