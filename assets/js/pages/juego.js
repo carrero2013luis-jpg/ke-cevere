@@ -889,7 +889,17 @@
             updateMenuUI();
 
         }
-
+/* =====================================================
+   FUNCIÓN PARA RESETEAR DESCUENTOS Y PARTIDAS
+===================================================== */
+function resetearTodo() {
+    localStorage.removeItem('kecevere_discount');
+    localStorage.removeItem('kecevere_arcade');
+    discount = 0.00;
+    gameData = { date: todayKey, plays: 0 };
+    updateMenuUI();
+    console.log("¡Descuentos y partidas reseteadas con éxito!");
+}
 
         /* =====================================================
            SINCRONIZACIÓN ENTRE PESTAÑAS
