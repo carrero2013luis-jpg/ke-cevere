@@ -373,7 +373,7 @@
                Nivel 1: Caída de 4.5 a 6.5 segundos (más lento)
                Niveles más altos: Se reduce la duración
             ============================================= */
-            const baseDuration = Math.random() * 2 + 4.5;
+            const baseDuration = Math.random() * 2 + 6.5;
             const speedFactor = 1 + (level - 1) * 0.12; // 12% más rápido por nivel
             const duration = Math.max(1.2, baseDuration / speedFactor);
 
