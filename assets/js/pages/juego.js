@@ -329,8 +329,10 @@
 
         function createFallingItem() {
 
+            const bombChance = 0.35; // Más bombas en el juego
+
             const randIndex =
-                Math.random() < 0.2
+                Math.random() < bombChance
                     ? 5
                     : Math.floor(
                         Math.random() * 5
@@ -370,10 +372,10 @@
 
             /* =============================================
                CÁLCULO DE VELOCIDAD SEGÚN EL NIVEL
-               Nivel 1: Caída de 4.5 a 6.5 segundos (más lento)
+               Nivel 1: Caída de 4.75 a 5.75 segundos (más rápido)
                Niveles más altos: Se reduce la duración
             ============================================= */
-            const baseDuration = Math.random() * 2 + 6.5;
+            const baseDuration = Math.random() * 1 + 4.75;
             const speedFactor = 1 + (level - 1) * 0.12; // 12% más rápido por nivel
             const duration = Math.max(1.2, baseDuration / speedFactor);
 
