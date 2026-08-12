@@ -892,6 +892,40 @@
 
         }
 /* =====================================================
+   FUNCIÓN PARA RESETEAR SÓLO EL CONTADOR DEL JUEGO
+===================================================== */
+function resetearJuego(password) {
+    const secret = '280716';
+
+    if (typeof password === 'undefined') {
+        password = prompt('Introduce la contraseña para reiniciar el contador de juego:');
+    }
+
+    if (password !== secret) {
+        console.warn('Contraseña incorrecta. No se ha reiniciado el contador del juego.');
+        return;
+    }
+
+    gameData = {
+        date: todayKey,
+        plays: 0
+    };
+
+    localStorage.setItem(
+        'kecevere_arcade',
+        JSON.stringify(gameData)
+    );
+
+    spawnedCount = 0;
+    gameActive = false;
+
+    updateMenuUI();
+
+    console.log('Contador de juego reiniciado. El descuento no se ha modificado.');
+}
+
+
+/* =====================================================
    FUNCIÓN PARA RESETEAR DESCUENTOS Y PARTIDAS
 ===================================================== */
 function resetearTodo() {
