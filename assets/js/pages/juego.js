@@ -927,14 +927,26 @@ function resetearJuego(password) {
 
 /* =====================================================
    FUNCIÓN PARA RESETEAR DESCUENTOS Y PARTIDAS
+   PROTEGIDA POR CONTRASEÑA
 ===================================================== */
-function resetearTodo() {
+function resetearTodo(password) {
+    const secret = '280716';
+
+    if (typeof password === 'undefined') {
+        password = prompt('Introduce la contraseña para reiniciar todo (descuentos y partidas):');
+    }
+
+    if (password !== secret) {
+        console.warn('Contraseña incorrecta. No se ha reiniciado todo.');
+        return;
+    }
+
     localStorage.removeItem('kecevere_discount');
     localStorage.removeItem('kecevere_arcade');
     discount = 0.00;
     gameData = { date: todayKey, plays: 0 };
     updateMenuUI();
-    console.log("¡Descuentos y partidas reseteadas con éxito!");
+    console.log('Descuentos y partidas reiniciados con éxito.');
 }
 
         /* =====================================================
