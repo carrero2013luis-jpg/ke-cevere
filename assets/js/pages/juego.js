@@ -559,11 +559,10 @@
                 );
 
 
-            /* El descuento se pierde */
+            /* El descuento acumulado se conserva */
 
-            discount = 0.00;
-
-            saveDiscount();
+            // discount no se reinicia aquí, así mantiene el dinero ganado
+            // en partidas anteriores.
 
 
             /* Reiniciar victorias */
