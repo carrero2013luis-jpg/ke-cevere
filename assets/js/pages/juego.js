@@ -279,8 +279,12 @@
 
 
             /* =============================================
-               CREAR OBJETOS
+               CREAR OBJETOS CON TIEMPOS SEGÚN EL NIVEL
             ============================================= */
+
+            // Ajuste de intervalo según el nivel (más espacio inicial, se acelera gradualmente)
+            const baseInterval = 700; 
+            const currentInterval = Math.max(300, baseInterval - (level - 1) * 40);
 
             spawnInterval =
                 setInterval(() => {
@@ -311,7 +315,7 @@
 
                     }
 
-                }, 350);
+                }, currentInterval);
 
 
             updateMenuUI();
@@ -364,8 +368,14 @@
                 '-60px';
 
 
-            const duration =
-                Math.random() * 2 + 3;
+            /* =============================================
+               CÁLCULO DE VELOCIDAD SEGÚN EL NIVEL
+               Nivel 1: Caída de 4.5 a 6.5 segundos (más lento)
+               Niveles más altos: Se reduce la duración
+            ============================================= */
+            const baseDuration = Math.random() * 2 + 4.5;
+            const speedFactor = 1 + (level - 1) * 0.12; // 12% más rápido por nivel
+            const duration = Math.max(1.2, baseDuration / speedFactor);
 
 
             el.style.animationDuration =
@@ -373,14 +383,7 @@
 
 
             /* =============================================
-               CONTROLAR SI LLEGA AL FONDO
-            ============================================= */
-
-            /* =============================================
                CAÍDA CONTROLADA POR JAVASCRIPT
-               (No depende de animaciones CSS, así funciona
-               igual en todos los dispositivos, incluso con
-               ahorro de batería o "reducir movimiento" activado)
             ============================================= */
 
             const travelDistance =
@@ -568,7 +571,6 @@
 
             /* Mostrar pantalla */
 
-            // Mostrar la pantalla final y mantener oculta la pantalla inicial.
             startScreen.hidden = true;
             endScreen.hidden = false;
 
@@ -701,7 +703,6 @@
                 );
 
 
-            // Mostrar la pantalla final y mantener oculta la pantalla inicial.
             startScreen.hidden = true;
             endScreen.hidden = false;
 
@@ -956,4 +957,3 @@
 
             }
         );
-
