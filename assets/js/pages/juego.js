@@ -561,8 +561,8 @@
 
             /* El descuento acumulado se conserva */
 
-            // discount no se reinicia aquí, así mantiene el dinero ganado
-            // en partidas anteriores.
+            // Guardar el valor actual en localStorage
+            saveDiscount();
 
 
             /* Reiniciar victorias */
