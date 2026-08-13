@@ -188,8 +188,21 @@
                 `${level} / 10`;
 
 
+            /*
+             * Mostrar en tiempo real:
+             * descuento ya ganado + descuento temporal
+             * de la partida actual.
+             *
+             * sessionDiscount NO se guarda aquí.
+             * Solo se persiste en saveDiscount(), después
+             * de ganar legítimamente la partida.
+             */
+            const visibleDiscount =
+                discount + sessionDiscount;
+
+
             discountDisplay.innerText =
-                `€${discount.toFixed(2)}`;
+                `€${visibleDiscount.toFixed(2)}`;
 
 
             const globalBadge =
@@ -201,7 +214,7 @@
             if (globalBadge) {
 
                 globalBadge.innerText =
-                    `€${discount.toFixed(2)}`;
+                    `€${visibleDiscount.toFixed(2)}`;
 
             }
 
@@ -503,6 +516,12 @@
                     // Acumular en puntos temporales de esta sesión (NO persiste)
                     sessionDiscount += 0.005;
 
+                    /*
+                     * Actualizar inmediatamente el marcador visual.
+                     * El descuento temporal sigue SOLO en memoria.
+                     */
+                    updateMenuUI();
+
                     showPopup(
                         '+0.005€',
                         e.clientX - 30,
@@ -566,6 +585,9 @@
 
             // NO guardar sessionDiscount - se pierde al perder la partida
             sessionDiscount = 0.00;
+
+            // Volver a mostrar únicamente el descuento persistido.
+            updateMenuUI();
 
 
             /* Reiniciar victorias */
@@ -742,8 +764,12 @@
                    ACREDITAR PUNTOS SOLO AL GANAR
                 ========================================= */
 
-                // Sumar puntos de sesión al descuento permanente
+                // Sumar puntos de sesión al descuento permanente.
+                // Este es el único momento en que la sesión se acredita.
                 discount += sessionDiscount;
+
+                // La sesión ya fue acreditada: evitar doble conteo visual.
+                sessionDiscount = 0.00;
 
                 // Guardar en localStorage SOLO al ganar
                 saveDiscount();
