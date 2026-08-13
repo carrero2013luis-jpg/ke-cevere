@@ -1,0 +1,294 @@
+/* Menú desplegable dinámico */
+
+/* =========================================================
+   TRIGGER DEL MENÚ
+   ========================================================= */
+
+.nav-dropdown-trigger {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 42px;
+
+    padding: 0.55rem 0.75rem;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #57534e;
+
+    font-size: 0.92rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    border: none;
+
+    transition:
+        color var(--transition),
+        background var(--transition),
+        transform var(--transition);
+}
+
+.nav-dropdown-trigger:hover {
+    color: var(--primary-dark);
+
+    background: #fff1dc;
+
+    transform: translateY(-1px);
+}
+
+.nav-dropdown-trigger span {
+    margin-left: 0.3rem;
+
+    display: inline-block;
+
+    transition: transform 0.2s ease;
+}
+
+.nav-menu-main.menu-open .nav-dropdown-trigger span {
+    transform: rotate(180deg);
+}
+
+
+/* Contenedor del menú principal */
+
+.nav-menu-main {
+    position: relative;
+}
+
+
+/* =========================================================
+   MEGA MENÚ
+   ========================================================= */
+
+.mega-nav {
+    position: absolute;
+
+    top: 100%;
+
+    left: 50%;
+
+    min-width: 600px;
+
+    display: flex;
+
+    flex-direction: row;
+
+    gap: 0;
+
+    margin-top: 0.5rem;
+
+    padding: 1.2rem;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateX(-50%) translateY(-8px);
+
+    transition:
+        opacity var(--transition),
+        visibility var(--transition),
+        transform var(--transition);
+
+    z-index: 1001;
+}
+
+.nav-menu-main.menu-open .mega-nav {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* Columnas */
+
+.mega-nav-column {
+    flex: 1;
+
+    min-width: 160px;
+
+    padding: 0 1.5rem;
+
+    border-right: 1px solid rgba(234, 223, 210, 0.5);
+}
+
+.mega-nav-column:last-child {
+    border-right: none;
+}
+
+
+/* Títulos de categorías */
+
+.mega-nav-title {
+    display: block;
+
+    margin-bottom: 0.7rem;
+
+    color: var(--secondary);
+
+    font-size: 0.95rem;
+
+    font-weight: 800;
+
+    transition:
+        color var(--transition),
+        text-decoration var(--transition);
+}
+
+.mega-nav-title:hover {
+    color: var(--primary-dark);
+
+    text-decoration: underline;
+
+    text-decoration-thickness: 2px;
+
+    text-underline-offset: 4px;
+}
+
+
+/* Lista de subcategorías */
+
+.mega-nav-column ul {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.3rem;
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+.mega-nav-column li {
+    margin: 0;
+
+    padding: 0;
+}
+
+.mega-nav-column a {
+    display: block;
+
+    padding: 0.45rem 0;
+
+    color: #57534e;
+
+    font-size: 0.88rem;
+
+    font-weight: 600;
+
+    transition:
+        color var(--transition),
+        padding-left var(--transition);
+}
+
+.mega-nav-column a:hover {
+    color: var(--primary-dark);
+
+    padding-left: 0.3rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 780px) {
+
+    .mega-nav {
+        position: static;
+
+        left: auto;
+
+        min-width: auto;
+
+        width: 100%;
+
+        margin-top: 0;
+
+        padding: 0;
+
+        background: transparent;
+
+        border: none;
+
+        box-shadow: none;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform: none;
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        transition:
+            max-height var(--transition),
+            opacity var(--transition),
+            visibility var(--transition);
+    }
+
+    nav.open .mega-nav,
+    .nav-menu-main.menu-open .mega-nav {
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        max-height: 600px;
+    }
+
+    .mega-nav-column {
+        padding: 0.8rem 0;
+
+        border-right: none;
+
+        border-bottom: 1px solid rgba(234, 223, 210, 0.3);
+    }
+
+    .mega-nav-column:last-child {
+        border-bottom: none;
+    }
+
+    .mega-nav-column a {
+        padding: 0.5rem 0;
+    }
+
+    .mega-nav-column a:hover {
+        padding-left: 0;
+    }
+}

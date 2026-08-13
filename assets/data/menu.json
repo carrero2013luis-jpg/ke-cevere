@@ -1,0 +1,23 @@
+{
+  "categorie": [
+    {
+      "id": "dolce",
+      "nome": "🍰 Dolce",
+      "slug": "dolce",
+      "sottocategorie": [
+        {"id":"torte-dessert","nome":"Torte & Dessert","slug":"torte-dessert"},
+        {"id":"torte-classiche","nome":"Torte Classiche","slug":"torte-classiche"},
+        {"id":"dolci-tradizionali-venezuelani","nome":"Dolci Tradizionali Venezuelani","slug":"dolci-tradizionali-venezuelani"}
+      ]
+    },
+    {
+      "id": "salato",
+      "nome": "🧀 Salato",
+      "slug": "salato",
+      "sottocategorie": [
+        {"id":"tequenos-pastelitos","nome":"Tequeños & Pastelitos","slug":"tequenos-pastelitos"},
+        {"id":"fritti-venezuelani","nome":"Fritti Venezuelani","slug":"fritti-venezuelani"}
+      ]
+    }
+  ]
+}

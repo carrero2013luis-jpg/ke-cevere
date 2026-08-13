@@ -37,7 +37,7 @@
     <main class="main-content">
         <div class="page-header">
             <span class="section-label">Pasticceria artigianale</span>
-            <h1 class="page-title">Catalogo di Dolci Tradizionali</h1>
+            <h1 class="page-title">Il Nostro Menu</h1>
             <p class="page-intro">
                 Scegli i tuoi preferiti e aggiungili al carrello. Per garantire la massima freschezza,
                 gli ordini vengono preparati con almeno 24 ore di anticipo.
@@ -46,9 +46,17 @@
 
         <div class="info-strip">🕒 Ordina con almeno 24 ore di anticipo · Consegne ad Arona e Milano</div>
 
+        <div class="catalog-filters" id="catalog-filters" aria-label="Filtra il menu">
+            <!-- Filtros generados desde data/menu.json -->
+        </div>
+
         <section class="grid product-grid" id="product-grid" aria-label="Catalogo prodotti">
             <!-- Los productos se generan automaticamente desde data/productos.json (js/productos.js) -->
         </section>
+
+        <div class="catalog-empty" id="catalog-empty" hidden>
+            Non ci sono prodotti in questa categoria al momento. Torna presto 🇻🇪
+        </div>
     </main>
 
     <footer>
@@ -79,6 +87,7 @@
     </footer>
 
     <script src="../assets/js/core/main.js"></script>
+    <script src="../assets/js/components/menu.js"></script>
     <script src="../assets/js/pages/tienda.js"></script>
     <script src="../assets/js/components/productos.js"></script>
 </body>

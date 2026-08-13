@@ -19,6 +19,9 @@
                 )
             ) || 0.00;
 
+        // Descuento temporal durante la partida (NO se persiste)
+        let sessionDiscount = 0.00;
+
         let gameActive = false;
 
         let spawnInterval = null;
@@ -272,6 +275,8 @@
                     element => element.remove()
                 );
 
+            // Reiniciar puntos temporales de la sesión
+            sessionDiscount = 0.00;
 
             gameActive = true;
 
@@ -495,10 +500,8 @@
 
                     /* DULCE */
 
-                    discount += 0.005;
-
-                    saveDiscount();
-
+                    // Acumular en puntos temporales de esta sesión (NO persiste)
+                    sessionDiscount += 0.005;
 
                     showPopup(
                         '+0.005€',
@@ -559,10 +562,10 @@
                 );
 
 
-            /* El descuento acumulado se conserva */
+            /* Al perder, descartar puntos de esta sesión */
 
-            // Guardar el valor actual en localStorage
-            saveDiscount();
+            // NO guardar sessionDiscount - se pierde al perder la partida
+            sessionDiscount = 0.00;
 
 
             /* Reiniciar victorias */
@@ -736,6 +739,17 @@
 
 
                 /* =========================================
+                   ACREDITAR PUNTOS SOLO AL GANAR
+                ========================================= */
+
+                // Sumar puntos de sesión al descuento permanente
+                discount += sessionDiscount;
+
+                // Guardar en localStorage SOLO al ganar
+                saveDiscount();
+
+
+                /* =========================================
                    CONFETI
                 ========================================= */
 
@@ -884,6 +898,8 @@
                     element => element.remove()
                 );
 
+            // Descartar puntos de sesión al volver al menú
+            sessionDiscount = 0.00;
 
             /* Actualizar interfaz */
 
@@ -917,6 +933,7 @@ function resetearJuego(password) {
 
     spawnedCount = 0;
     gameActive = false;
+    sessionDiscount = 0.00;
 
     updateMenuUI();
 
@@ -943,6 +960,7 @@ function resetearTodo(password) {
     localStorage.removeItem('kecevere_discount');
     localStorage.removeItem('kecevere_arcade');
     discount = 0.00;
+    sessionDiscount = 0.00;
     gameData = { date: todayKey, plays: 0 };
     updateMenuUI();
     console.log('Descuentos y partidas reiniciados con éxito.');
