@@ -238,7 +238,7 @@
             width: 100%;
             height: 100%;
 
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, 0.99);
 
             display: flex;
             flex-direction: column;
@@ -249,7 +249,7 @@
 
             padding: 25px;
 
-            z-index: 200;
+            z-index: 500;
         }
 
         .overlay-screen h2 {
@@ -259,7 +259,7 @@
         }
 
         .overlay-screen p {
-            color: var(--text-secondary);
+            color: var(--text);
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 25px;
@@ -274,7 +274,7 @@
             background: linear-gradient(
                 135deg,
                 var(--accent),
-                var(--accent-hover)
+                var(--primary)
             );
 
             color: white;
