@@ -19,9 +19,12 @@ function escaparHTML(value = "") {
 
 function imagenProducto(producto, root = APP_ROOT) {
     if (producto.imagen) {
+        // Mantener exactamente la capitalización del nombre definido en productos.json.
+        const rutaImagen = `${root}assets/img/productos/${producto.imagen}`;
+
         return `
             <div class="card-image">
-                <img src="${root}assets/img/productos/${encodeURIComponent(producto.imagen)}"
+                <img src="${rutaImagen}"
                      alt="${escaparHTML(producto.nombre)}" loading="lazy">
             </div>`;
     }
