@@ -33,4 +33,11 @@
     --container: 1180px;
 
     --transition: 0.2s ease;
+
+    --accent-hover: #d97706;
+
+    /* Variables usadas por el arcade */
+    --border-color: var(--border);
+    --cabinet-bg: #ffffff;
+    --panel-bg: #fffaf3;
 }
