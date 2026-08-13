@@ -1,17 +1,17 @@
 [
   {
-    "id":"tres-leches",
-    "nombre":"Tres Leches Venezuelana",
-    "descripcion":"Pan di Spagna soffice immerso in tre latti, cremoso e delicato, con finitura artigianale.",
-    "precio":25,
-    "info":"Formato famigliare",
-    "imagen":"11.jpg",
-    "destacado":true,
-    "disponibile":true,
-    "categoria":"dolce",
-    "sottocategoria":"torte-dessert",
-    "ordine":1
-  },
+  "id": "tres-leches",
+  "nombre": "Tres Leches Venezolana",
+  "descripcion": "Pan di Spagna soffice immerso in tre latti, cremoso e delicato, con finitura artigianale.",
+  "precio": 25,
+  "info": "Formato famigliare",
+  "imagen":"producto1.jpg",
+  "destacado": true,
+  "disponibile": true,
+  "categoria": "dolce",
+  "sottocategoria": "torte-dessert",
+  "ordine": 1
+},
   {
     "id":"bienmesabe",
     "nombre":"Bienmesabe di Coco",
