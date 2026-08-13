@@ -34,5 +34,27 @@
     "info": "Tradizionale",
     "imagen": "producto4.jpg",
     "destacado": false
+  },
+  {
+    "id": "producto5",
+    "nombre": "Bienmesabe di Coco",
+    "descripcion": "Delicato dolciume al cocco e meringa, cremoso, soffice e leggermente profumato alla cannella.",
+    "precio": 18,
+    "info": "Tradizionale",
+    "imagen": "producto5.jpg",
+    "destacado": false
+  },
+  {
+    "id": "producto6",
+    "nombre": "Torta de Chocolate",
+    "descripcion": "Torta al cioccolato fondente con ganache di cioccolato e decorazioni di frutta fresca.",
+    "precio": 30,
+    "info": "Artigianale",
+    "imagen": "producto6.jpg",
+    "destacado": false
+    
   }
+
+
+
 ]
